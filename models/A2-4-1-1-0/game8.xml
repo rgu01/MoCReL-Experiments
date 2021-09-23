@@ -799,7 +799,7 @@ t_loadingFromWL_TK0,t_loadingFromPrimary_TK0,t_unloadingToSecond_TK0,t_loadingFr
 </system>
 	<queries>
 		<query>
-			<formula>strategy policy = maxE(var - timeConsumption)[&lt;=TOTALTIME]{
+			<formula>strategy policy = maxE(var*50 - timeConsumption)[&lt;=TOTALTIME]{
 Rong.location,
 
 m_stone0Secondary0_TK0.location, m_secondary0Stone0_TK0.location, 
@@ -824,9 +824,8 @@ agents[2].a_position, agents[2].a_monitors[0], agents[2].a_task.t_id, agents[2].
 			<comment>for learning</comment>
 		</query>
 		<query>
-			<formula/>
-			<comment>for saving the strategy
-saveStrategy("~/Rong/Gu-TACAS2021/strategies/A/complete_policy8.out", policy)</comment>
+			<formula>saveStrategy("/home/ubuntu/Rong/Gu-TACAS2021/strategies/A/complete_policy8.out", policy)</formula>
+			<comment>for saving the strategy</comment>
 		</query>
 		<query>
 			<formula>A&lt;&gt; isGameWon() under policy</formula>
@@ -838,14 +837,12 @@ saveStrategy("~/Rong/Gu-TACAS2021/strategies/A/complete_policy8.out", policy)</c
 E&lt;&gt; isGameWon() under policy</comment>
 		</query>
 		<query>
-			<formula/>
-			<comment>for compacting the strategy
-saveStrategy("~/Rong/Gu-TACAS2021/strategies/A/compact_policy8.out", policy)</comment>
+			<formula>saveStrategy("/home/ubuntu/Rong/Gu-TACAS2021/strategies/A/compact_policy8.out", policy)</formula>
+			<comment>for compacting the strategy</comment>
 		</query>
 		<query>
-			<formula/>
-			<comment>for verifying the compact strategy
-A&lt;&gt; isGameWon() under policy</comment>
+			<formula>A&lt;&gt; isGameWon() under policy</formula>
+			<comment>for verifying the compact strategy</comment>
 		</query>
 	</queries>
 </nta>
