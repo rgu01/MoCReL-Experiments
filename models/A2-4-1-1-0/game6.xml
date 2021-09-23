@@ -824,8 +824,9 @@ agents[2].a_position, agents[2].a_monitors[0], agents[2].a_task.t_id, agents[2].
 			<comment>for learning</comment>
 		</query>
 		<query>
-			<formula>saveStrategy("~/Rong/Gu-TACAS2021/strategies/A/complete_policy6.out", policy)</formula>
-			<comment>for saving the strategy</comment>
+			<formula/>
+			<comment>for saving the strategy
+saveStrategy("~/Rong/Gu-TACAS2021/strategies/A/complete_policy6.out", policy)</comment>
 		</query>
 		<query>
 			<formula>A&lt;&gt; isGameWon() under policy</formula>
@@ -837,12 +838,14 @@ agents[2].a_position, agents[2].a_monitors[0], agents[2].a_task.t_id, agents[2].
 E&lt;&gt; isGameWon() under policy</comment>
 		</query>
 		<query>
-			<formula>saveStrategy("~/Rong/Gu-TACAS2021/strategies/A/compact_policy6.out", policy)</formula>
-			<comment>for compacting the strategy</comment>
+			<formula/>
+			<comment>for compacting the strategy
+saveStrategy("~/Rong/Gu-TACAS2021/strategies/A/compact_policy6.out", policy)</comment>
 		</query>
 		<query>
-			<formula>A&lt;&gt; isGameWon() under policy</formula>
-			<comment>for verifying the compact strategy</comment>
+			<formula/>
+			<comment>for verifying the compact strategy
+A&lt;&gt; isGameWon() under policy</comment>
 		</query>
 	</queries>
 </nta>
