@@ -3,9 +3,9 @@
 <nta>
 	<declaration>const int GOALRANGE = 1000;
 const int NOAGENTS = 2;
-const int NOMILESTONES = 4;
+const int NOMILESTONES = 5;
 const int NOTASKS = 3;
-const int NODEVICES = 4;
+const int NODEVICES = 5;
 const int NOEVENTS = 1;
 
 typedef int[0,GOALRANGE] goalrange_t;
@@ -63,9 +63,9 @@ const milestoneid_t UNKOWNPOS = -1;
 const deviceid_t NULLDEVICE = -1;
 const device_t UNKOWNDEVICE = {NULLDEVICE, UNKOWNPOS};
 const taskid_t ID_IDLE = -1;
-const task_t TASK_IDLE = {ID_IDLE, UNKOWNDEVICE, {UNKOWNDEVICE, UNKOWNDEVICE, UNKOWNDEVICE, UNKOWNDEVICE}};
+const task_t TASK_IDLE = {ID_IDLE, UNKOWNDEVICE, {UNKOWNDEVICE, UNKOWNDEVICE, UNKOWNDEVICE, UNKOWNDEVICE, UNKOWNDEVICE}};
 const taskid_t ID_MOVING = -2;
-const task_t TASK_MOVING = {ID_MOVING, UNKOWNDEVICE, {UNKOWNDEVICE, UNKOWNDEVICE, UNKOWNDEVICE, UNKOWNDEVICE}};
+const task_t TASK_MOVING = {ID_MOVING, UNKOWNDEVICE, {UNKOWNDEVICE, UNKOWNDEVICE, UNKOWNDEVICE, UNKOWNDEVICE, UNKOWNDEVICE}};
 
 broadcast chan exe[NOAGENTS], done[NOAGENTS];
 broadcast chan go[NOAGENTS];
@@ -702,12 +702,14 @@ const agentid_t ID_TRUCK0 = 1;
 const deviceid_t ID_DV_PC0 = 0;
 const deviceid_t ID_DV_PC1 = 1;
 const deviceid_t ID_DV_SC0 = 2;
+const deviceid_t ID_DV_SC1 = 3;
 
 /**ID of milestones*/
 const milestoneid_t ID_STONE0 = 0;
 const milestoneid_t ID_PRIMARYCRUSHER0 = 1;
 const milestoneid_t ID_PRIMARYCRUSHER1 = 2;
 const milestoneid_t ID_SECONDARYCRUSHER0 = 3;
+const milestoneid_t ID_SECONDARYCRUSHER1 = 4;
 
 /**ID of tasks*/
 const taskid_t ID_DIG_WHEELLOADER = 0;
@@ -723,13 +725,14 @@ const device_t DV_STONE0_NULL = {NULLDEVICE, ID_STONE0};
 const device_t DV_PC0 = {ID_DV_PC0, ID_PRIMARYCRUSHER0};
 const device_t DV_PC1 = {ID_DV_PC1, ID_PRIMARYCRUSHER1};
 const device_t DV_SC0 = {ID_DV_SC0, ID_SECONDARYCRUSHER0};
+const device_t DV_SC1 = {ID_DV_SC1, ID_SECONDARYCRUSHER1};
 
 /**tasks and their milestones*/
-const task_t TASK_DIG = {ID_DIG_WHEELLOADER, UNKOWNDEVICE, {DV_STONE0_NULL, UNKOWNDEVICE, UNKOWNDEVICE, UNKOWNDEVICE}};
-const task_t TASK_UNLOAD_TO_TRUCKS = {ID_UNLOAD_TO_TRUCKS_WHEELLOADER, UNKOWNDEVICE, {DV_STONE0_NULL, UNKOWNDEVICE, UNKOWNDEVICE, UNKOWNDEVICE}};
-const task_t TASK_LOAD_FROM_WHEELLOADERS = {ID_LOAD_FROM_WHEELLOADERS_TRUCK, UNKOWNDEVICE, {DV_STONE0_NULL, UNKOWNDEVICE, UNKOWNDEVICE, UNKOWNDEVICE}};
-const task_t TASK_LOAD_FROM_PRIMARY = {ID_LOAD_FROM_PRIMARY_TRUCK, UNKOWNDEVICE, {DV_PC0, DV_PC1, UNKOWNDEVICE, UNKOWNDEVICE}};
-const task_t TASK_UNLOAD_TO_SECONDARY = {ID_UNLOAD_TO_SECONDARY_TRUCK, UNKOWNDEVICE, {DV_SC0, UNKOWNDEVICE, UNKOWNDEVICE, UNKOWNDEVICE}};
+const task_t TASK_DIG = {ID_DIG_WHEELLOADER, UNKOWNDEVICE, {DV_STONE0_NULL, UNKOWNDEVICE, UNKOWNDEVICE, UNKOWNDEVICE, UNKOWNDEVICE}};
+const task_t TASK_UNLOAD_TO_TRUCKS = {ID_UNLOAD_TO_TRUCKS_WHEELLOADER, UNKOWNDEVICE, {DV_STONE0_NULL, UNKOWNDEVICE, UNKOWNDEVICE, UNKOWNDEVICE, UNKOWNDEVICE}};
+const task_t TASK_LOAD_FROM_WHEELLOADERS = {ID_LOAD_FROM_WHEELLOADERS_TRUCK, UNKOWNDEVICE, {DV_STONE0_NULL, UNKOWNDEVICE, UNKOWNDEVICE, UNKOWNDEVICE, UNKOWNDEVICE}};
+const task_t TASK_LOAD_FROM_PRIMARY = {ID_LOAD_FROM_PRIMARY_TRUCK, UNKOWNDEVICE, {DV_PC0, DV_PC1, UNKOWNDEVICE, UNKOWNDEVICE, UNKOWNDEVICE}};
+const task_t TASK_UNLOAD_TO_SECONDARY = {ID_UNLOAD_TO_SECONDARY_TRUCK, UNKOWNDEVICE, {DV_SC0, DV_SC1, UNKOWNDEVICE, UNKOWNDEVICE, UNKOWNDEVICE}};
 
 /**preconditions of tasks*/
 const precondition_t PRE_UNLOAD_TO_TRUCK_WL0 = {ID_WHEELLOADER0, ID_DIG_WHEELLOADER};
@@ -757,10 +760,16 @@ Rong = Referee(INIT_AGENTS, GOAL);
 //truck 0
 m_stone0Secondary0_TK0 = Movement(ID_TRUCK0, ID_STONE0, ID_SECONDARYCRUSHER0, 120, TASK_LOAD_FROM_WHEELLOADERS, TASK_UNLOAD_TO_SECONDARY);
 m_secondary0Stone0_TK0 = Movement(ID_TRUCK0, ID_SECONDARYCRUSHER0, ID_STONE0, 120, TASK_UNLOAD_TO_SECONDARY, TASK_LOAD_FROM_WHEELLOADERS);
+m_stone0Secondary1_TK0 = Movement(ID_TRUCK0, ID_STONE0, ID_SECONDARYCRUSHER1, 120, TASK_LOAD_FROM_WHEELLOADERS, TASK_UNLOAD_TO_SECONDARY);
+m_secondary1Stone0_TK0 = Movement(ID_TRUCK0, ID_SECONDARYCRUSHER1, ID_STONE0, 120, TASK_UNLOAD_TO_SECONDARY, TASK_LOAD_FROM_WHEELLOADERS);
 m_primary0Secondary0_TK0 = Movement(ID_TRUCK0, ID_PRIMARYCRUSHER0, ID_SECONDARYCRUSHER0, 120, TASK_LOAD_FROM_PRIMARY, TASK_UNLOAD_TO_SECONDARY);
 m_secondary0Primary0_TK0 = Movement(ID_TRUCK0, ID_SECONDARYCRUSHER0, ID_PRIMARYCRUSHER0, 120, TASK_UNLOAD_TO_SECONDARY, TASK_LOAD_FROM_PRIMARY);
+m_primary0Secondary1_TK0 = Movement(ID_TRUCK0, ID_PRIMARYCRUSHER0, ID_SECONDARYCRUSHER1, 120, TASK_LOAD_FROM_PRIMARY, TASK_UNLOAD_TO_SECONDARY);
+m_secondary1Primary0_TK0 = Movement(ID_TRUCK0, ID_SECONDARYCRUSHER1, ID_PRIMARYCRUSHER0, 120, TASK_UNLOAD_TO_SECONDARY, TASK_LOAD_FROM_PRIMARY);
 m_primary1Secondary0_TK0 = Movement(ID_TRUCK0, ID_PRIMARYCRUSHER1, ID_SECONDARYCRUSHER0, 120, TASK_LOAD_FROM_PRIMARY, TASK_UNLOAD_TO_SECONDARY);
 m_secondary0Primary1_TK0 = Movement(ID_TRUCK0, ID_SECONDARYCRUSHER0, ID_PRIMARYCRUSHER1, 120, TASK_UNLOAD_TO_SECONDARY, TASK_LOAD_FROM_PRIMARY);
+m_primary1Secondary1_TK0 = Movement(ID_TRUCK0, ID_PRIMARYCRUSHER1, ID_SECONDARYCRUSHER1, 120, TASK_LOAD_FROM_PRIMARY, TASK_UNLOAD_TO_SECONDARY);
+m_secondary1Primary1_TK0 = Movement(ID_TRUCK0, ID_SECONDARYCRUSHER1, ID_PRIMARYCRUSHER1, 120, TASK_UNLOAD_TO_SECONDARY, TASK_LOAD_FROM_PRIMARY);
 /** Tasks */
 //wheel loder 0
 t_digging_WL0 = TaskNoCondition(ID_WHEELLOADER0, 60, 60, TASK_DIG, false);
@@ -773,11 +782,12 @@ t_unloadingToSecond_TK0 = TaskWithConditions(ID_TRUCK0, 90, 90, TASK_UNLOAD_TO_S
 system Rong,
 /**map*/
 
-m_stone0Secondary0_TK0,m_secondary0Stone0_TK0,
+m_stone0Secondary0_TK0,m_secondary0Stone0_TK0,m_stone0Secondary1_TK0,m_secondary1Stone0_TK0,
 
-m_primary0Secondary0_TK0,m_secondary0Primary0_TK0,
+m_primary0Secondary0_TK0,m_secondary0Primary0_TK0,m_primary0Secondary1_TK0,m_secondary1Primary0_TK0,
 
-m_primary1Secondary0_TK0,m_secondary0Primary1_TK0,
+m_primary1Secondary0_TK0,m_secondary0Primary1_TK0,m_primary1Secondary1_TK0,m_secondary1Primary1_TK0,
+
 
 
 /**tasks*/
@@ -790,11 +800,12 @@ t_loadingFromWL_TK0,t_loadingFromPrimary_TK0,t_unloadingToSecond_TK0;
 			<formula>strategy policy = maxE(var * 50 - timeConsumption)[&lt;=TOTALTIME]{
 Rong.location,
 
-m_stone0Secondary0_TK0.location, m_secondary0Stone0_TK0.location, 
+m_stone0Secondary0_TK0.location, m_secondary0Stone0_TK0.location, m_stone0Secondary1_TK0.location, m_secondary1Stone0_TK0.location, 
 
-m_primary0Secondary0_TK0.location, m_secondary0Primary0_TK0.location, 
+m_primary0Secondary0_TK0.location, m_secondary0Primary0_TK0.location, m_primary0Secondary1_TK0.location, m_secondary1Primary0_TK0.location, 
 
-m_primary1Secondary0_TK0.location, m_secondary0Primary1_TK0.location, 
+m_primary1Secondary0_TK0.location, m_secondary0Primary1_TK0.location, m_primary1Secondary1_TK0.location, m_secondary1Primary1_TK0.location, 
+
 
 
 t_digging_WL0.location, t_unloading_WL0.location, 
@@ -807,7 +818,7 @@ agents[1].a_position, agents[1].a_monitors[0], agents[1].a_task.t_id, agents[1].
 			<comment>for learning</comment>
 		</query>
 		<query>
-			<formula>saveStrategy("/home/ubuntu/Rong/Gu-TACAS2021/strategies/E/complete_policy2.out", policy)</formula>
+			<formula>saveStrategy("/home/ubuntu/Rong/Gu-TACAS2022/strategies/E/complete_policy2.out", policy)</formula>
 			<comment>for saving the strategy</comment>
 		</query>
 		<query>
@@ -820,7 +831,7 @@ agents[1].a_position, agents[1].a_monitors[0], agents[1].a_task.t_id, agents[1].
 E&lt;&gt; isGameWon() under policy</comment>
 		</query>
 		<query>
-			<formula>saveStrategy("/home/ubuntu/Rong/Gu-TACAS2021/strategies/E/compact_policy2.out", policy)</formula>
+			<formula>saveStrategy("/home/ubuntu/Rong/Gu-TACAS2022/strategies/E/compact_policy2.out", policy)</formula>
 			<comment>for compacting the strategy</comment>
 		</query>
 		<query>

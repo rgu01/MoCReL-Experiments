@@ -752,8 +752,8 @@ const goalrange_t ITERATIONS = 2;
 
 /**initial information of agents*/
 const agent_t INIT_WHEELLOADER0 = {ID_STONE0, TASK_IDLE, {UNSTARTED, UNSTARTED, UNSTARTED}, {SLEEP}};
-const agent_t INIT_TRUCK0 = {ID_PRIMARYCRUSHER0, TASK_IDLE, {UNSTARTED, UNSTARTED, UNSTARTED}, {SLEEP}};
-const agent_t INIT_TRUCK1 = {ID_PRIMARYCRUSHER0, TASK_IDLE, {UNSTARTED, UNSTARTED, UNSTARTED}, {SLEEP}};
+const agent_t INIT_TRUCK0 = {ID_STONE0, TASK_IDLE, {UNSTARTED, UNSTARTED, UNSTARTED}, {SLEEP}};
+const agent_t INIT_TRUCK1 = {ID_SECONDARYCRUSHER0, TASK_IDLE, {UNSTARTED, UNSTARTED, UNSTARTED}, {SLEEP}};
 const agent_t INIT_AGENTS[NOAGENTS] = {INIT_WHEELLOADER0,INIT_TRUCK0,INIT_TRUCK1};
 
 /** Agents */
@@ -799,9 +799,9 @@ t_loadingFromWL_TK1 = Collaboration_H(ID_TRUCK1, TASK_LOAD_FROM_WHEELLOADERS, PR
 t_loadingFromPrimary_TK1 = TaskWithCondition(ID_TRUCK1, 90, 90, TASK_LOAD_FROM_PRIMARY, PRE_LOAD_FROM_PRIMARY_TRUCK1, false);
 t_unloadingToSecond_TK1 = TaskWithConditions(ID_TRUCK1, 90, 90, TASK_UNLOAD_TO_SECONDARY, PRE_UNLOAD_TO_SECONDARY_TRUCK1, GOAL/ITERATIONS, true);
 t_charging_TK1 = TaskEvent(ID_TRUCK1, ID_EVENT_BATTERY_LOW, 90, 90, TASK_CHARGE);
-o_battery_WL0 = Monitor(ID_WHEELLOADER0, ID_EVENT_BATTERY_LOW, 300, 327);
-o_battery_TK0 = Monitor(ID_TRUCK0, ID_EVENT_BATTERY_LOW, 789, 882);
-o_battery_TK1 = Monitor(ID_TRUCK1, ID_EVENT_BATTERY_LOW, 789, 882);
+o_battery_WL0 = Monitor(ID_WHEELLOADER0, ID_EVENT_BATTERY_LOW, 301, 842);
+o_battery_TK0 = Monitor(ID_TRUCK0, ID_EVENT_BATTERY_LOW, 598, 769);
+o_battery_TK1 = Monitor(ID_TRUCK1, ID_EVENT_BATTERY_LOW, 598, 769);
 
 system Rong,
 /**map*/
@@ -850,7 +850,7 @@ agents[2].a_position, agents[2].a_monitors[0], agents[2].a_task.t_id, agents[2].
 			<comment>for learning</comment>
 		</query>
 		<query>
-			<formula>saveStrategy("/home/ubuntu/Rong/Gu-TACAS2021/strategies/D/complete_policy3.out", policy)</formula>
+			<formula>saveStrategy("/home/ubuntu/Rong/Gu-TACAS2022/strategies/D/complete_policy3.out", policy)</formula>
 			<comment>for saving the strategy</comment>
 		</query>
 		<query>
@@ -863,7 +863,7 @@ agents[2].a_position, agents[2].a_monitors[0], agents[2].a_task.t_id, agents[2].
 E&lt;&gt; isGameWon() under policy</comment>
 		</query>
 		<query>
-			<formula>saveStrategy("/home/ubuntu/Rong/Gu-TACAS2021/strategies/D/compact_policy3.out", policy)</formula>
+			<formula>saveStrategy("/home/ubuntu/Rong/Gu-TACAS2022/strategies/D/compact_policy3.out", policy)</formula>
 			<comment>for compacting the strategy</comment>
 		</query>
 		<query>

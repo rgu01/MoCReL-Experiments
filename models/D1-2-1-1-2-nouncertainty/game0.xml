@@ -748,7 +748,7 @@ const goalrange_t ITERATIONS = 2;
 
 /**initial information of agents*/
 const agent_t INIT_WHEELLOADER0 = {ID_STONE0, TASK_IDLE, {UNSTARTED, UNSTARTED, UNSTARTED}, {SLEEP}};
-const agent_t INIT_TRUCK0 = {ID_PRIMARYCRUSHER0, TASK_IDLE, {UNSTARTED, UNSTARTED, UNSTARTED}, {SLEEP}};
+const agent_t INIT_TRUCK0 = {ID_SECONDARYCRUSHER0, TASK_IDLE, {UNSTARTED, UNSTARTED, UNSTARTED}, {SLEEP}};
 const agent_t INIT_AGENTS[NOAGENTS] = {INIT_WHEELLOADER0,INIT_TRUCK0};
 
 /** Agents */
@@ -778,8 +778,8 @@ t_loadingFromWL_TK0 = Collaboration_H(ID_TRUCK0, TASK_LOAD_FROM_WHEELLOADERS, PR
 t_loadingFromPrimary_TK0 = TaskWithCondition(ID_TRUCK0, 90, 90, TASK_LOAD_FROM_PRIMARY, PRE_LOAD_FROM_PRIMARY_TRUCK0, false);
 t_unloadingToSecond_TK0 = TaskWithConditions(ID_TRUCK0, 90, 90, TASK_UNLOAD_TO_SECONDARY, PRE_UNLOAD_TO_SECONDARY_TRUCK0, GOAL/ITERATIONS, true);
 t_charging_TK0 = TaskEvent(ID_TRUCK0, ID_EVENT_BATTERY_LOW, 90, 90, TASK_CHARGE);
-o_battery_WL0 = Monitor(ID_WHEELLOADER0, ID_EVENT_BATTERY_LOW, 301, 731);
-o_battery_TK0 = Monitor(ID_TRUCK0, ID_EVENT_BATTERY_LOW, 343, 875);
+o_battery_WL0 = Monitor(ID_WHEELLOADER0, ID_EVENT_BATTERY_LOW, 310, 547);
+o_battery_TK0 = Monitor(ID_TRUCK0, ID_EVENT_BATTERY_LOW, 441, 725);
 
 system Rong,
 /**map*/
@@ -796,8 +796,6 @@ o_battery_WL0,o_battery_TK0;
 
 </system>
 	<queries>
-		<option key="--learning-method" value="-1"/>
-		<option key="--good-runs" value="500"/>
 		<query>
 			<formula>strategy policy = maxE(var * 50 - timeConsumption)[&lt;=TOTALTIME]{
 Rong.location,
@@ -816,53 +814,9 @@ agents[1].a_position, agents[1].a_monitors[0], agents[1].a_task.t_id, agents[1].
 }-&gt;{}:&lt;&gt; Rong.Win || Rong.Lose
 </formula>
 			<comment>for learning</comment>
-			<result outcome="success" type="quality" timestamp="2021-09-26 09:37:11 +0200">
-				<option key="--search-order" value="0"/>
-				<option key="--statespace-consumption" value="1"/>
-				<option key="--diagnostic" value="-1"/>
-				<option key="--backwards-order" value="1"/>
-				<option key="--priority-order" value="0"/>
-				<option key="--generate-strategy" value="2"/>
-				<option key="--extrapolation" value="0"/>
-				<option key="--hashtable-size" value="27"/>
-				<option key="--filter" value="0"/>
-				<option key="--learning-method" value="-1"/>
-				<option key="--good-runs" value="500"/>
-				<option key="--total-runs" value="500"/>
-				<option key="--runs-pr-state" value="100"/>
-				<option key="--eval-runs" value="100"/>
-				<option key="--max-iterations" value="30"/>
-				<option key="--max-imitation" value="5"/>
-				<option key="--reset-no-better" value="10"/>
-				<option key="--max-reset-learning" value="3"/>
-				<option key="--qlearning-alpha" value="2"/>
-				<option key="--split-upper-t" value="1.75"/>
-				<option key="--split-lower-t" value="0.15"/>
-				<option key="--split-ks" value="0.25"/>
-				<option key="--split-filter-rate" value="0.02"/>
-				<option key="--split-filter-val" value="0.99"/>
-				<option key="--discount" value="0.99"/>
-				<option key="--random-search-limit" value="0.5"/>
-				<option key="--deterministic-search-limit" value="0.5"/>
-				<option key="--indifference-scale" value="0.005"/>
-				<option key="--indifference-smoothing" value="10"/>
-				<option key="--lower-delta" value="0.01"/>
-				<option key="--upper-delta" value="0.01"/>
-				<option key="--alpha" value="0.05"/>
-				<option key="--beta" value="0.05"/>
-				<option key="--epsilon" value="0.05"/>
-				<option key="--u0" value="0.9"/>
-				<option key="--u1" value="1.1"/>
-				<option key="--histogram-bar-width" value="0.0"/>
-				<option key="--histogram-bar-count" value="0"/>
-				<option key="--resolution" value="4000"/>
-				<option key="--discretization" value="0.01"/>
-				<option key="--truncation-error" value="0.01"/>
-				<option key="--truncation-time-error" value="0.01"/>
-			</result>
 		</query>
 		<query>
-			<formula>saveStrategy("/home/ubuntu/Rong/Gu-TACAS2021/strategies/D/complete_policy0.out", policy)</formula>
+			<formula>saveStrategy("/home/ubuntu/Rong/Gu-TACAS2022/strategies/D/complete_policy0.out", policy)</formula>
 			<comment>for saving the strategy</comment>
 		</query>
 		<query>
@@ -875,7 +829,7 @@ agents[1].a_position, agents[1].a_monitors[0], agents[1].a_task.t_id, agents[1].
 E&lt;&gt; isGameWon() under policy</comment>
 		</query>
 		<query>
-			<formula>saveStrategy("/home/ubuntu/Rong/Gu-TACAS2021/strategies/D/compact_policy0.out", policy)</formula>
+			<formula>saveStrategy("/home/ubuntu/Rong/Gu-TACAS2022/strategies/D/compact_policy0.out", policy)</formula>
 			<comment>for compacting the strategy</comment>
 		</query>
 		<query>
