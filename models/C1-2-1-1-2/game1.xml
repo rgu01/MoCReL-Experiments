@@ -800,8 +800,8 @@ t_loadingFromPrimary_TK1 = TaskWithCondition(ID_TRUCK1, 44, 61, TASK_LOAD_FROM_P
 t_unloadingToSecond_TK1 = TaskWithConditions(ID_TRUCK1, 101, 117, TASK_UNLOAD_TO_SECONDARY, PRE_UNLOAD_TO_SECONDARY_TRUCK1, GOAL/ITERATIONS, true);
 t_charging_TK1 = TaskEvent(ID_TRUCK1, ID_EVENT_BATTERY_LOW, 62, 84, TASK_CHARGE);
 o_battery_WL0 = Monitor(ID_WHEELLOADER0, ID_EVENT_BATTERY_LOW, 680, 751);
-o_battery_TK0 = Monitor(ID_TRUCK0, ID_EVENT_BATTERY_LOW, 569, 682);
-o_battery_TK1 = Monitor(ID_TRUCK1, ID_EVENT_BATTERY_LOW, 569, 682);
+o_battery_TK0 = Monitor(ID_TRUCK0, ID_EVENT_BATTERY_LOW, 469, 682);
+o_battery_TK1 = Monitor(ID_TRUCK1, ID_EVENT_BATTERY_LOW, 469, 682);
 
 system Rong,
 /**map*/
