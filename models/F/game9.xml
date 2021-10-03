@@ -17,7 +17,7 @@ typedef int[-1,NOEVENTS-1] eventid_t;
 typedef int[0,86400] time_t; // time is in seconds (24 hours is the maximum)
 typedef int[0,10] size_t;
 
-const time_t TOTALTIME = 3600; // total time of the game: 1 hour
+const time_t TOTALTIME = 7200; // total time of the game: 1 hour
 
 typedef int[0,3] taskstatus_t;  // task status
 const taskstatus_t UNSTARTED = 0; // not started yet
