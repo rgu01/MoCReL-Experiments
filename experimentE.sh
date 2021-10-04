@@ -9,7 +9,7 @@ UPPAAL_EXTERNAL_LEARNER_LIBRARY=~/uppaal/Gu-TACAS2022/lib/libexternal_learning.s
 #
 UPPAAL_EXTERNAL_LEARNER_LIBRARY=~/uppaal/Gu-TACAS2022/lib/libexternal_learning.so ./stratego/verifyta -u ~/uppaal/Gu-TACAS2022/models/E1-3-4-2-0-nouncertainty/game4.xml -D 0.01 --learning-method -1 -s --max-iterations 30 --eval-runs 100 --good-runs 500 --total-runs 500 --reset-no-better 10 --max-reset-learning 3 >> results/E/result4
 #
-UPPAAL_EXTERNAL_LEARNER_LIBRARY=~/uppaal/Gu-TACAS2022/lib/libexternal_learning.so ./stratego/verifyta -u ~/uppaal/Gu-TACAS2022/models/E1-3-4-2-0-nouncertainty/game5.xml -D 0.01 --learning-method -1 -s --max-iterations 30 --eval-runs 100 --good-runs 500 --total-runs 500 --reset-no-better 10 --max-reset-learning 3 >> results/E/result5
+UPPAAL_EXTERNAL_LEARNER_LIBRARY=~/uppaal/Gu-TACAS2022/lib/libexternal_learning.so ./stratego/verifyta -u ~/uppaal/Gu-TACAS2022/models/E1-3-4-2-0-nouncertainty/game5.xml -D 0.01 --learning-method -1 -s --max-iterations 30 --eval-runs 100 --good-runs 5000 --total-runs 5000 --reset-no-better 10 --max-reset-learning 3 >> results/E/result5
 #
 UPPAAL_EXTERNAL_LEARNER_LIBRARY=~/uppaal/Gu-TACAS2022/lib/libexternal_learning.so ./stratego/verifyta -u ~/uppaal/Gu-TACAS2022/models/E1-3-4-2-0-nouncertainty/game6.xml -D 0.01 --learning-method -1 -s --max-iterations 30 --eval-runs 100 --good-runs 500 --total-runs 500 --reset-no-better 10 --max-reset-learning 3 >> results/E/result6
 #
