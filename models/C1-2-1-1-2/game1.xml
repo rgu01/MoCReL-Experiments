@@ -896,7 +896,7 @@ agents[2].a_position, agents[2].a_monitors[0], agents[2].a_task.t_id, agents[2].
 			</result>
 		</query>
 		<query>
-			<formula>saveStrategy("/home/ubuntu/Rong/Gu-TACAS2022/strategies/C/complete_policy1.out", policy)</formula>
+			<formula>saveStrategy("/home/ubuntu/uppaal/Gu-TACAS2022/strategies/C/complete_policy1.out", policy)</formula>
 			<comment>for saving the strategy</comment>
 		</query>
 		<query>
@@ -953,7 +953,7 @@ agents[2].a_position, agents[2].a_monitors[0], agents[2].a_task.t_id, agents[2].
 E&lt;&gt; isGameWon() under policy</comment>
 		</query>
 		<query>
-			<formula>saveStrategy("/home/ubuntu/Rong/Gu-TACAS2022/strategies/C/compact_policy1.out", policy)</formula>
+			<formula>saveStrategy("/home/ubuntu/uppaal/Gu-TACAS2022/strategies/C/compact_policy1.out", policy)</formula>
 			<comment>for compacting the strategy</comment>
 		</query>
 		<query>
