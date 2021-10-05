@@ -1,0 +1,53 @@
+Options for the verification:
+  Generating no trace
+  Search order is breadth first
+  Using conservative space optimisation
+  Seed is 1633438240
+  State space representation uses minimal constraint systems with future testing
+  Using HashMap + Compress integers for discrete state storage
+
+Verifying formula 1 at /nta/queries/query[1]/formula
+ -- Formula is satisfied.
+(18000 runs)
+Learning statistics for best strategy: 
+	Number of resets: 0
+	Number of iterations in last reset: 10
+	Number of iterations in total: 10
+
+
+ -- States explored : 1797628 states
+ -- CPU user time used : 42263 ms
+ -- Virtual memory used : 57196 KiB
+ -- Resident memory used : 18240 KiB
+
+Verifying formula 2 at /nta/queries/query[2]/formula
+ -- Formula is satisfied.
+$v_gameInfoCounterPlay
+
+ -- States explored : 0 states
+ -- CPU user time used : 40 ms
+ -- Virtual memory used : 57320 KiB
+ -- Resident memory used : 18544 KiB
+
+Verifying formula 3 at /nta/queries/query[3]/formula
+ -- Formula is satisfied.
+ -- States explored : 184 states
+ -- CPU user time used : 56 ms
+ -- Virtual memory used : 60284 KiB
+ -- Resident memory used : 19396 KiB
+
+Verifying formula 4 at 
+ -- Formula is satisfied.
+$v_gameInfoCounterPlay
+
+ -- States explored : 0 states
+ -- CPU user time used : 1 ms
+ -- Virtual memory used : 60284 KiB
+ -- Resident memory used : 19396 KiB
+
+Verifying formula 5 at /nta/queries/query[5]/formula
+ -- Formula is satisfied.
+ -- States explored : 184 states
+ -- CPU user time used : 54 ms
+ -- Virtual memory used : 65252 KiB
+ -- Resident memory used : 23352 KiB
