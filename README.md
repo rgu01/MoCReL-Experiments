@@ -10,3 +10,4 @@
 
 # Run the experiments
 - One can repeat the experiments on his/her own laptop (must be Linux) by running the *.sh files.
+- One can see the models by opening them with the latest version of UPPAAL STRATEGO: https://people.cs.aau.dk/~marius/stratego/
