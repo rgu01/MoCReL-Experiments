@@ -1,0 +1,298 @@
+{"version":1.0,"type":"state->regressor","representation":"map","actions":{
+		"0":"Rong.Ongoing->Rong.Win { isGameWon(), tau, 1 }",
+		"1":"m_stone0Secondary0_TK0.P1->m_stone0Secondary0_TK0.F1T2 { isReady(p1), tau, move() }",
+		"2":"m_secondary0Stone0_TK0.P1->m_secondary0Stone0_TK0.F1T2 { isReady(p1), tau, move() }",
+		"3":"m_stone1Secondary0_TK0.P1->m_stone1Secondary0_TK0.F1T2 { isReady(p1), tau, move() }",
+		"4":"m_secondary0Stone1_TK0.P1->m_secondary0Stone1_TK0.F1T2 { isReady(p1), tau, move() }",
+		"5":"m_primary0Secondary0_TK0.P1->m_primary0Secondary0_TK0.F1T2 { isReady(p1), tau, move() }",
+		"6":"m_secondary0Primary0_TK0.P1->m_secondary0Primary0_TK0.F1T2 { isReady(p1), tau, move() }",
+		"7":"t_digging_WL0.Idle->t_digging_WL0.Executing { !isBusy(agentID, task) && isExecutable(agentID, task) && agents[agentID].a_status[task.t_id] != FINISHED && !isMonitorAlert(agentID), tau, xe := 0, start(agentID, task) }",
+		"8":"t_digging_WL0.Waiting->t_digging_WL0.Executing { !isBusy(agentID, task) && isExecutable(agentID, task) && agents[agentID].a_status[task.t_id] != FINISHED, tau, xe := 0, start(agentID, task) }",
+		"9":"t_digging_WL0.Idle->t_digging_WL0.Waiting { isBusy(agentID, task) && isExecutable(agentID, task) && agents[agentID].a_status[task.t_id] != FINISHED && !isMonitorAlert(agentID), tau, xe := 0, wait(agentID, task) }",
+		"10":"t_unloading_WL0.Idle->t_unloading_WL0.Executing { !isBusy(agentID, task) && isExecutable(agentID, task) && agents[precondition.p_agent].a_status[precondition.p_task] == FINISHED && agents[agentID].a_status[task.t_id] != FINISHED && (agents[collaborations[0].c_agent].a_position == collaborations[0].c_position && agents[collaborations[0].c_agent].a_position == agents[agentID].a_position) && !isMonitorAlert(agentID), exe[collaborations[0].c_agent]!, xe := 0, helper := collaborations[0].c_agent, start(agentID, task) }",
+		"11":"t_unloading_WL0.Waiting->t_unloading_WL0.Executing { !isBusy(agentID, task) && isExecutable(agentID, task) && agents[precondition.p_agent].a_status[precondition.p_task] == FINISHED && agents[agentID].a_status[task.t_id] != FINISHED && (agents[collaborations[helper].c_agent].a_position == collaborations[helper].c_position && agents[collaborations[helper].c_agent].a_position == agents[agentID].a_position), exe[helper]!, xe := 0, start(agentID, task) }",
+		"12":"t_unloading_WL0.Idle->t_unloading_WL0.Waiting { isBusy(agentID, task) && isExecutable(agentID, task) && agents[precondition.p_agent].a_status[precondition.p_task] == FINISHED && agents[agentID].a_status[task.t_id] != FINISHED && (agents[collaborations[0].c_agent].a_position == collaborations[0].c_position && agents[collaborations[0].c_agent].a_position == agents[agentID].a_position) && !isMonitorAlert(agentID), tau, xe := 0, helper := collaborations[0].c_agent, wait(agentID, task) }",
+		"13":"t_digging_WL1.Idle->t_digging_WL1.Executing { !isBusy(agentID, task) && isExecutable(agentID, task) && agents[agentID].a_status[task.t_id] != FINISHED && !isMonitorAlert(agentID), tau, xe := 0, start(agentID, task) }",
+		"14":"t_digging_WL1.Waiting->t_digging_WL1.Executing { !isBusy(agentID, task) && isExecutable(agentID, task) && agents[agentID].a_status[task.t_id] != FINISHED, tau, xe := 0, start(agentID, task) }",
+		"15":"t_digging_WL1.Idle->t_digging_WL1.Waiting { isBusy(agentID, task) && isExecutable(agentID, task) && agents[agentID].a_status[task.t_id] != FINISHED && !isMonitorAlert(agentID), tau, xe := 0, wait(agentID, task) }",
+		"16":"t_unloading_WL1.Idle->t_unloading_WL1.Executing { !isBusy(agentID, task) && isExecutable(agentID, task) && agents[precondition.p_agent].a_status[precondition.p_task] == FINISHED && agents[agentID].a_status[task.t_id] != FINISHED && (agents[collaborations[0].c_agent].a_position == collaborations[0].c_position && agents[collaborations[0].c_agent].a_position == agents[agentID].a_position) && !isMonitorAlert(agentID), exe[collaborations[0].c_agent]!, xe := 0, helper := collaborations[0].c_agent, start(agentID, task) }",
+		"17":"t_unloading_WL1.Waiting->t_unloading_WL1.Executing { !isBusy(agentID, task) && isExecutable(agentID, task) && agents[precondition.p_agent].a_status[precondition.p_task] == FINISHED && agents[agentID].a_status[task.t_id] != FINISHED && (agents[collaborations[helper].c_agent].a_position == collaborations[helper].c_position && agents[collaborations[helper].c_agent].a_position == agents[agentID].a_position), exe[helper]!, xe := 0, start(agentID, task) }",
+		"18":"t_unloading_WL1.Idle->t_unloading_WL1.Waiting { isBusy(agentID, task) && isExecutable(agentID, task) && agents[precondition.p_agent].a_status[precondition.p_task] == FINISHED && agents[agentID].a_status[task.t_id] != FINISHED && (agents[collaborations[0].c_agent].a_position == collaborations[0].c_position && agents[collaborations[0].c_agent].a_position == agents[agentID].a_position) && !isMonitorAlert(agentID), tau, xe := 0, helper := collaborations[0].c_agent, wait(agentID, task) }",
+		"19":"t_loadingFromWL_TK0.Idle->t_loadingFromWL_TK0.Waiting { isBusy(agentID, task) && isExecutable(agentID, task) && agents[agentID].a_status[task.t_id] != FINISHED && agents[precondition.p_agent].a_status[precondition.p_task] != FINISHED && (agents[collaborations[0].c_agent].a_position == collaborations[0].c_position && agents[collaborations[0].c_agent].a_position == agents[agentID].a_position) && !isMonitorAlert(agentID), tau, xe := 0, initiator := 0, wait(agentID, task) }",
+		"20":"t_loadingFromWL_TK0.Idle->t_loadingFromWL_TK0.Waiting { isBusy(agentID, task) && isExecutable(agentID, task) && agents[agentID].a_status[task.t_id] != FINISHED && agents[precondition.p_agent].a_status[precondition.p_task] != FINISHED && (agents[collaborations[1].c_agent].a_position == collaborations[1].c_position && agents[collaborations[1].c_agent].a_position == agents[agentID].a_position) && !isMonitorAlert(agentID), tau, xe := 0, initiator := 1, wait(agentID, task) }",
+		"21":"t_loadingFromPrimary_TK0.Idle->t_loadingFromPrimary_TK0.Executing { !isBusy(agentID, task) && isExecutable(agentID, task) && agents[precondition.p_agent].a_status[precondition.p_task] != FINISHED && agents[agentID].a_status[task.t_id] != FINISHED && !isMonitorAlert(agentID), tau, xe := 0, start(agentID, task) }",
+		"22":"t_loadingFromPrimary_TK0.Waiting->t_loadingFromPrimary_TK0.Executing { !isBusy(agentID, task) && isExecutable(agentID, task) && agents[precondition.p_agent].a_status[precondition.p_task] != FINISHED && agents[agentID].a_status[task.t_id] != FINISHED, tau, xe := 0, start(agentID, task) }",
+		"23":"t_loadingFromPrimary_TK0.Idle->t_loadingFromPrimary_TK0.Waiting { isBusy(agentID, task) && isExecutable(agentID, task) && agents[precondition.p_agent].a_status[precondition.p_task] != FINISHED && agents[agentID].a_status[task.t_id] != FINISHED && !isMonitorAlert(agentID), tau, xe := 0, wait(agentID, task) }",
+		"24":"t_unloadingToSecond_TK0.Idle->t_unloadingToSecond_TK0.Executing { !isBusy(agentID, task) && isExecutable(agentID, task) && (agents[preconditions[0].p_agent].a_status[preconditions[0].p_task] == FINISHED || agents[preconditions[1].p_agent].a_status[preconditions[1].p_task] == FINISHED) && agents[agentID].a_status[task.t_id] != FINISHED && !isMonitorAlert(agentID), tau, xe := 0, start(agentID, task) }",
+		"25":"t_unloadingToSecond_TK0.Waiting->t_unloadingToSecond_TK0.Executing { !isBusy(agentID, task) && isExecutable(agentID, task) && (agents[preconditions[0].p_agent].a_status[preconditions[0].p_task] == FINISHED || agents[preconditions[1].p_agent].a_status[preconditions[1].p_task] == FINISHED) && agents[agentID].a_status[task.t_id] != FINISHED, tau, xe := 0, start(agentID, task) }",
+		"26":"t_unloadingToSecond_TK0.Idle->t_unloadingToSecond_TK0.Waiting { isBusy(agentID, task) && isExecutable(agentID, task) && (agents[preconditions[0].p_agent].a_status[preconditions[0].p_task] == FINISHED || agents[preconditions[1].p_agent].a_status[preconditions[1].p_task] == FINISHED) && agents[agentID].a_status[task.t_id] != FINISHED && !isMonitorAlert(agentID), tau, xe := 0, wait(agentID, task) }",
+		"27":"WAIT"
+	},"statevars":[
+		"Rong.location",
+		"m_stone0Secondary0_TK0.location",
+		"m_secondary0Stone0_TK0.location",
+		"m_stone1Secondary0_TK0.location",
+		"m_secondary0Stone1_TK0.location",
+		"m_primary0Secondary0_TK0.location",
+		"m_secondary0Primary0_TK0.location",
+		"t_digging_WL0.location",
+		"t_unloading_WL0.location",
+		"t_digging_WL1.location",
+		"t_unloading_WL1.location",
+		"t_loadingFromWL_TK0.location",
+		"t_loadingFromPrimary_TK0.location",
+		"t_unloadingToSecond_TK0.location",
+		"var",
+		"agents[0].a_position",
+		"agents[0].a_monitors[0]",
+		"agents[0].a_task.t_id",
+		"agents[0].a_task.t_deviceUse.d_id",
+		"agents[0].a_task.t_deviceUse.d_position",
+		"agents[0].a_status[ID_DIG_WHEELLOADER]",
+		"agents[0].a_status[ID_UNLOAD_TO_TRUCKS_WHEELLOADER]",
+		"agents[1].a_position",
+		"agents[1].a_monitors[0]",
+		"agents[1].a_task.t_id",
+		"agents[1].a_task.t_deviceUse.d_id",
+		"agents[1].a_task.t_deviceUse.d_position",
+		"agents[1].a_status[ID_DIG_WHEELLOADER]",
+		"agents[1].a_status[ID_UNLOAD_TO_TRUCKS_WHEELLOADER]",
+		"agents[2].a_position",
+		"agents[2].a_monitors[0]",
+		"agents[2].a_task.t_id",
+		"agents[2].a_task.t_deviceUse.d_id",
+		"agents[2].a_task.t_deviceUse.d_position",
+		"agents[2].a_status[ID_DIG_WHEELLOADER]",
+		"agents[2].a_status[ID_UNLOAD_TO_TRUCKS_WHEELLOADER]"
+	],"pointvars":[
+	],"locationnames":{
+		"Rong.location":{
+			"0":"Lose",
+			"1":"Win",
+			"2":"Ongoing",
+			"3":"Begin"
+		},
+		"m_stone0Secondary0_TK0.location":{
+			"0":"P2",
+			"1":"F1T2",
+			"2":"P1"
+		},
+		"m_secondary0Stone0_TK0.location":{
+			"0":"P2",
+			"1":"F1T2",
+			"2":"P1"
+		},
+		"m_stone1Secondary0_TK0.location":{
+			"0":"P2",
+			"1":"F1T2",
+			"2":"P1"
+		},
+		"m_secondary0Stone1_TK0.location":{
+			"0":"P2",
+			"1":"F1T2",
+			"2":"P1"
+		},
+		"m_primary0Secondary0_TK0.location":{
+			"0":"P2",
+			"1":"F1T2",
+			"2":"P1"
+		},
+		"m_secondary0Primary0_TK0.location":{
+			"0":"P2",
+			"1":"F1T2",
+			"2":"P1"
+		},
+		"t_digging_WL0.location":{
+			"0":"Waiting",
+			"1":"Idle",
+			"2":"Executing"
+		},
+		"t_unloading_WL0.location":{
+			"0":"Waiting",
+			"1":"Idle",
+			"2":"Executing"
+		},
+		"t_digging_WL1.location":{
+			"0":"Waiting",
+			"1":"Idle",
+			"2":"Executing"
+		},
+		"t_unloading_WL1.location":{
+			"0":"Waiting",
+			"1":"Idle",
+			"2":"Executing"
+		},
+		"t_loadingFromWL_TK0.location":{
+			"0":"Waiting",
+			"1":"Idle",
+			"2":"Executing"
+		},
+		"t_loadingFromPrimary_TK0.location":{
+			"0":"Waiting",
+			"1":"Idle",
+			"2":"Executing"
+		},
+		"t_unloadingToSecond_TK0.location":{
+			"0":"Waiting",
+			"1":"Idle",
+			"2":"Executing"
+		}
+	},"regressors":{"(2,0,2,2,2,2,2,1,1,1,1,1,1,1,0,0,0,-1,-1,-1,2,0,1,0,-1,-1,-1,2,0,3,0,-1,-1,-1,0,0,),[]":{
+	"2":3412.2,
+	"4":3437.57,
+	"6":3619.04},
+"(2,0,2,2,2,2,2,1,1,1,1,1,1,1,20,0,0,-1,-1,-1,2,0,1,0,-1,-1,-1,2,0,3,0,-1,-1,-1,0,0,),[]":{
+	"2":2767.19,
+	"4":2758.49,
+	"6":2961.31},
+"(2,0,2,2,2,2,2,1,1,1,1,1,1,1,40,0,0,-1,-1,-1,2,0,1,0,-1,-1,-1,2,0,3,0,-1,-1,-1,0,0,),[]":{
+	"2":2177.26,
+	"4":2063.15,
+	"6":2241.38},
+"(2,0,2,2,2,2,2,1,1,1,1,1,1,1,60,0,0,-1,-1,-1,2,0,1,0,-1,-1,-1,2,0,3,0,-1,-1,-1,0,0,),[]":{
+	"2":1452.47,
+	"4":1334.37,
+	"6":1507.28},
+"(2,0,2,2,2,2,2,1,1,1,1,1,1,1,80,0,0,-1,-1,-1,2,0,1,0,-1,-1,-1,2,0,3,0,-1,-1,-1,0,0,),[]":{
+	"2":714.39,
+	"4":597.509,
+	"6":762.922},
+"(2,2,0,2,2,2,2,1,1,1,1,1,1,1,0,0,0,-1,-1,-1,0,0,1,0,-1,-1,-1,2,0,0,0,-1,-1,-1,2,0,),[]":{
+	"1":3789.08,
+	"7":3785.39},
+"(2,2,0,2,2,2,2,1,1,1,1,1,1,1,0,0,0,-1,-1,-1,2,0,1,0,-1,-1,-1,2,0,0,0,-1,-1,-1,0,0,),[]":{
+	"1":3461.15,
+	"10":3711.68},
+"(2,2,0,2,2,2,2,1,1,1,1,1,1,1,20,0,0,-1,-1,-1,0,0,1,0,-1,-1,-1,2,0,0,0,-1,-1,-1,2,0,),[]":{
+	"1":3078.31,
+	"7":3080.92},
+"(2,2,0,2,2,2,2,1,1,1,1,1,1,1,20,0,0,-1,-1,-1,2,0,1,0,-1,-1,-1,2,0,0,0,-1,-1,-1,0,0,),[]":{
+	"1":2841.23,
+	"10":3007.7},
+"(2,2,0,2,2,2,2,1,1,1,1,1,1,1,40,0,0,-1,-1,-1,0,0,1,0,-1,-1,-1,2,0,0,0,-1,-1,-1,2,0,),[]":{
+	"1":2353.31,
+	"7":2349.61},
+"(2,2,0,2,2,2,2,1,1,1,1,1,1,1,40,0,0,-1,-1,-1,2,0,1,0,-1,-1,-1,2,0,0,0,-1,-1,-1,0,0,),[]":{
+	"1":2130.97,
+	"10":2289.78},
+"(2,2,0,2,2,2,2,1,1,1,1,1,1,1,60,0,0,-1,-1,-1,0,0,1,0,-1,-1,-1,2,0,0,0,-1,-1,-1,2,0,),[]":{
+	"1":1615.01,
+	"7":1612.64},
+"(2,2,0,2,2,2,2,1,1,1,1,1,1,1,60,0,0,-1,-1,-1,2,0,1,0,-1,-1,-1,2,0,0,0,-1,-1,-1,0,0,),[]":{
+	"1":1405.55,
+	"10":1557.83},
+"(2,2,0,2,2,2,2,1,1,1,1,1,1,1,80,0,0,-1,-1,-1,0,0,1,0,-1,-1,-1,2,0,0,0,-1,-1,-1,2,0,),[]":{
+	"1":857.558,
+	"7":859.159},
+"(2,2,0,2,2,2,2,1,1,1,1,1,1,1,80,0,0,-1,-1,-1,2,0,1,0,-1,-1,-1,2,0,0,0,-1,-1,-1,0,0,),[]":{
+	"1":665.517,
+	"10":812.947},
+"(2,2,2,0,2,2,2,1,1,1,1,1,1,1,0,0,0,-1,-1,-1,2,0,1,0,-1,-1,-1,2,0,3,0,-1,-1,-1,0,0,),[]":{
+	"2":3594.54,
+	"6":3489.34},
+"(2,2,2,0,2,2,2,1,1,1,1,1,1,1,20,0,0,-1,-1,-1,2,0,1,0,-1,-1,-1,2,0,3,0,-1,-1,-1,0,0,),[]":{
+	"2":2884.86,
+	"4":2756.08,
+	"6":2958.66},
+"(2,2,2,0,2,2,2,1,1,1,1,1,1,1,40,0,0,-1,-1,-1,2,0,1,0,-1,-1,-1,2,0,3,0,-1,-1,-1,0,0,),[]":{
+	"2":2179.24,
+	"4":2059.16,
+	"6":2241.29},
+"(2,2,2,0,2,2,2,1,1,1,1,1,1,1,60,0,0,-1,-1,-1,2,0,1,0,-1,-1,-1,2,0,3,0,-1,-1,-1,0,0,),[]":{
+	"2":1455.75,
+	"4":1335.9,
+	"6":1511.26},
+"(2,2,2,0,2,2,2,1,1,1,1,1,1,1,80,0,0,-1,-1,-1,2,0,1,0,-1,-1,-1,2,0,3,0,-1,-1,-1,0,0,),[]":{
+	"2":715.125,
+	"4":596.694,
+	"6":761.167},
+"(2,2,2,2,0,2,2,1,1,1,1,1,1,1,0,0,0,-1,-1,-1,2,0,1,0,-1,-1,-1,0,0,1,0,-1,-1,-1,2,0,),[]":{
+	"3":3732.4,
+	"13":3692.49},
+"(2,2,2,2,0,2,2,1,1,1,1,1,1,1,0,0,0,-1,-1,-1,2,0,1,0,-1,-1,-1,2,0,1,0,-1,-1,-1,0,0,),[]":{
+	"3":3315.23,
+	"16":3656.16},
+"(2,2,2,2,0,2,2,1,1,1,1,1,1,1,20,0,0,-1,-1,-1,2,0,1,0,-1,-1,-1,0,0,1,0,-1,-1,-1,2,0,),[]":{
+	"3":3021.67,
+	"13":3016.45},
+"(2,2,2,2,0,2,2,1,1,1,1,1,1,1,20,0,0,-1,-1,-1,2,0,1,0,-1,-1,-1,2,0,1,0,-1,-1,-1,0,0,),[]":{
+	"3":2784.13,
+	"16":2949.85},
+"(2,2,2,2,0,2,2,1,1,1,1,1,1,1,40,0,0,-1,-1,-1,2,0,1,0,-1,-1,-1,0,0,1,0,-1,-1,-1,2,0,),[]":{
+	"3":2294.99,
+	"13":2294.37},
+"(2,2,2,2,0,2,2,1,1,1,1,1,1,1,40,0,0,-1,-1,-1,2,0,1,0,-1,-1,-1,2,0,1,0,-1,-1,-1,0,0,),[]":{
+	"3":2069.85,
+	"16":2233.55},
+"(2,2,2,2,0,2,2,1,1,1,1,1,1,1,60,0,0,-1,-1,-1,2,0,1,0,-1,-1,-1,0,0,1,0,-1,-1,-1,2,0,),[]":{
+	"3":1552.83,
+	"13":1552.54},
+"(2,2,2,2,0,2,2,1,1,1,1,1,1,1,60,0,0,-1,-1,-1,2,0,1,0,-1,-1,-1,2,0,1,0,-1,-1,-1,0,0,),[]":{
+	"3":1346.44,
+	"16":1495.99},
+"(2,2,2,2,0,2,2,1,1,1,1,1,1,1,80,0,0,-1,-1,-1,2,0,1,0,-1,-1,-1,0,0,1,0,-1,-1,-1,2,0,),[]":{
+	"3":803.029,
+	"13":798.69},
+"(2,2,2,2,0,2,2,1,1,1,1,1,1,1,80,0,0,-1,-1,-1,2,0,1,0,-1,-1,-1,2,0,1,0,-1,-1,-1,0,0,),[]":{
+	"3":607.244,
+	"16":753.621},
+"(2,2,2,2,2,0,2,1,1,1,1,1,1,1,0,0,0,-1,-1,-1,2,0,1,0,-1,-1,-1,2,0,3,0,-1,-1,-1,0,0,),[]":{
+	"2":3586.3,
+	"4":3471.01,
+	"6":3662.68},
+"(2,2,2,2,2,0,2,1,1,1,1,1,1,1,20,0,0,-1,-1,-1,2,0,1,0,-1,-1,-1,2,0,3,0,-1,-1,-1,0,0,),[]":{
+	"2":2888.87,
+	"4":2773.49,
+	"6":2965.18},
+"(2,2,2,2,2,0,2,1,1,1,1,1,1,1,40,0,0,-1,-1,-1,2,0,1,0,-1,-1,-1,2,0,3,0,-1,-1,-1,0,0,),[]":{
+	"2":2176.98,
+	"4":2063.47,
+	"6":2248.55},
+"(2,2,2,2,2,0,2,1,1,1,1,1,1,1,60,0,0,-1,-1,-1,2,0,1,0,-1,-1,-1,2,0,3,0,-1,-1,-1,0,0,),[]":{
+	"2":1455.16,
+	"4":1334.3,
+	"6":1514.52},
+"(2,2,2,2,2,0,2,1,1,1,1,1,1,1,80,0,0,-1,-1,-1,2,0,1,0,-1,-1,-1,2,0,3,0,-1,-1,-1,0,0,),[]":{
+	"2":714.528,
+	"4":598.601,
+	"6":764.303},
+"(2,2,2,2,2,1,2,1,1,1,1,1,1,1,0,0,0,-1,-1,-1,0,0,1,0,-1,-1,-1,0,0,-1,0,-2,-1,-1,0,0,),[]":{
+	"7":3560.75,
+	"13":3558},
+"(2,2,2,2,2,2,0,1,1,1,1,1,1,1,0,0,0,-1,-1,-1,2,0,1,0,-1,-1,-1,2,0,2,0,-1,-1,-1,0,0,),[]":{
+	"5":3560.35,
+	"21":3766.36},
+"(2,2,2,2,2,2,0,1,1,1,1,1,1,1,20,0,0,-1,-1,-1,2,0,1,0,-1,-1,-1,2,0,2,0,-1,-1,-1,0,0,),[]":{
+	"5":2864.6,
+	"21":3060.09},
+"(2,2,2,2,2,2,0,1,1,1,1,1,1,1,40,0,0,-1,-1,-1,2,0,1,0,-1,-1,-1,2,0,2,0,-1,-1,-1,0,0,),[]":{
+	"5":2152.75,
+	"21":2338.09},
+"(2,2,2,2,2,2,0,1,1,1,1,1,1,1,60,0,0,-1,-1,-1,2,0,1,0,-1,-1,-1,2,0,2,0,-1,-1,-1,0,0,),[]":{
+	"5":1429.41,
+	"21":1596.04},
+"(2,2,2,2,2,2,0,1,1,1,1,1,1,1,80,0,0,-1,-1,-1,2,0,1,0,-1,-1,-1,2,0,2,0,-1,-1,-1,0,0,),[]":{
+	"5":689.465,
+	"21":837.378},
+"(2,2,2,2,2,2,2,1,1,1,1,1,1,1,0,0,0,-1,-1,-1,0,0,1,0,-1,-1,-1,0,0,2,0,-1,-1,-1,0,0,),[]":{
+	"5":3525.38,
+	"7":3721.54,
+	"13":3721.13,
+	"21":3737.75},
+"(2,2,2,2,2,2,2,1,1,1,1,1,2,1,0,0,0,-1,-1,-1,0,0,1,0,-1,-1,-1,0,0,2,0,0,0,2,1,0,),[]":{
+	"7":3756.15,
+	"13":3776.77},
+"(2,2,2,2,2,2,2,1,1,2,1,1,1,1,0,0,0,-1,-1,-1,0,0,1,0,0,-1,1,1,0,2,0,-1,-1,-1,0,0,),[]":{
+	"5":3561.71,
+	"7":3727.9,
+	"21":3757.25},
+"(2,2,2,2,2,2,2,2,1,1,1,1,1,1,0,0,0,0,-1,0,1,0,1,0,-1,-1,-1,0,0,2,0,-1,-1,-1,0,0,),[]":{
+	"5":3560.81,
+	"13":3725.72,
+	"21":3755.41},
+"(2,2,2,2,2,2,2,2,1,2,1,1,1,1,0,0,0,0,-1,0,1,0,1,0,0,-1,1,1,0,2,0,-1,-1,-1,0,0,),[]":{
+	"5":3560.84,
+	"21":3767.34}
+
+	}
+}

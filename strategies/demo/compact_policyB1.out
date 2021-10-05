@@ -1,0 +1,206 @@
+{"version":1.0,"type":"state->regressor","representation":"map","actions":{
+		"0":"Rong.Ongoing->Rong.Win { isGameWon(), tau, 1 }",
+		"1":"m_stone0Secondary0_TK0.P1->m_stone0Secondary0_TK0.F1T2 { isReady(p1), tau, move() }",
+		"2":"m_secondary0Stone0_TK0.P1->m_secondary0Stone0_TK0.F1T2 { isReady(p1), tau, move() }",
+		"3":"m_primary0Secondary0_TK0.P1->m_primary0Secondary0_TK0.F1T2 { isReady(p1), tau, move() }",
+		"4":"m_secondary0Primary0_TK0.P1->m_secondary0Primary0_TK0.F1T2 { isReady(p1), tau, move() }",
+		"5":"m_primary1Secondary0_TK0.P1->m_primary1Secondary0_TK0.F1T2 { isReady(p1), tau, move() }",
+		"6":"m_secondary0Primary1_TK0.P1->m_secondary0Primary1_TK0.F1T2 { isReady(p1), tau, move() }",
+		"7":"m_primary2Secondary0_TK0.P1->m_primary2Secondary0_TK0.F1T2 { isReady(p1), tau, move() }",
+		"8":"m_secondary0Primary2_TK0.P1->m_secondary0Primary2_TK0.F1T2 { isReady(p1), tau, move() }",
+		"9":"m_primary3Secondary0_TK0.P1->m_primary3Secondary0_TK0.F1T2 { isReady(p1), tau, move() }",
+		"10":"m_secondary0Primary3_TK0.P1->m_secondary0Primary3_TK0.F1T2 { isReady(p1), tau, move() }",
+		"11":"t_digging_WL0.Idle->t_digging_WL0.Executing { !isBusy(agentID, task) && isExecutable(agentID, task) && agents[agentID].a_status[task.t_id] != FINISHED && !isMonitorAlert(agentID), tau, xe := 0, start(agentID, task) }",
+		"12":"t_digging_WL0.Waiting->t_digging_WL0.Executing { !isBusy(agentID, task) && isExecutable(agentID, task) && agents[agentID].a_status[task.t_id] != FINISHED, tau, xe := 0, start(agentID, task) }",
+		"13":"t_digging_WL0.Idle->t_digging_WL0.Waiting { isBusy(agentID, task) && isExecutable(agentID, task) && agents[agentID].a_status[task.t_id] != FINISHED && !isMonitorAlert(agentID), tau, xe := 0, wait(agentID, task) }",
+		"14":"t_unloading_WL0.Idle->t_unloading_WL0.Executing { !isBusy(agentID, task) && isExecutable(agentID, task) && agents[precondition.p_agent].a_status[precondition.p_task] == FINISHED && agents[agentID].a_status[task.t_id] != FINISHED && (agents[collaborations[0].c_agent].a_position == collaborations[0].c_position && agents[collaborations[0].c_agent].a_position == agents[agentID].a_position) && !isMonitorAlert(agentID), exe[collaborations[0].c_agent]!, xe := 0, helper := collaborations[0].c_agent, start(agentID, task) }",
+		"15":"t_unloading_WL0.Waiting->t_unloading_WL0.Executing { !isBusy(agentID, task) && isExecutable(agentID, task) && agents[precondition.p_agent].a_status[precondition.p_task] == FINISHED && agents[agentID].a_status[task.t_id] != FINISHED && (agents[collaborations[helper].c_agent].a_position == collaborations[helper].c_position && agents[collaborations[helper].c_agent].a_position == agents[agentID].a_position), exe[helper]!, xe := 0, start(agentID, task) }",
+		"16":"t_unloading_WL0.Idle->t_unloading_WL0.Waiting { isBusy(agentID, task) && isExecutable(agentID, task) && agents[precondition.p_agent].a_status[precondition.p_task] == FINISHED && agents[agentID].a_status[task.t_id] != FINISHED && (agents[collaborations[0].c_agent].a_position == collaborations[0].c_position && agents[collaborations[0].c_agent].a_position == agents[agentID].a_position) && !isMonitorAlert(agentID), tau, xe := 0, helper := collaborations[0].c_agent, wait(agentID, task) }",
+		"17":"t_loadingFromWL_TK0.Idle->t_loadingFromWL_TK0.Waiting { isBusy(agentID, task) && isExecutable(agentID, task) && agents[agentID].a_status[task.t_id] != FINISHED && agents[precondition.p_agent].a_status[precondition.p_task] != FINISHED && (agents[collaborations[0].c_agent].a_position == collaborations[0].c_position && agents[collaborations[0].c_agent].a_position == agents[agentID].a_position) && !isMonitorAlert(agentID), tau, xe := 0, initiator := 0, wait(agentID, task) }",
+		"18":"t_loadingFromPrimary_TK0.Idle->t_loadingFromPrimary_TK0.Executing { !isBusy(agentID, task) && isExecutable(agentID, task) && agents[precondition.p_agent].a_status[precondition.p_task] != FINISHED && agents[agentID].a_status[task.t_id] != FINISHED && !isMonitorAlert(agentID), tau, xe := 0, start(agentID, task) }",
+		"19":"t_loadingFromPrimary_TK0.Waiting->t_loadingFromPrimary_TK0.Executing { !isBusy(agentID, task) && isExecutable(agentID, task) && agents[precondition.p_agent].a_status[precondition.p_task] != FINISHED && agents[agentID].a_status[task.t_id] != FINISHED, tau, xe := 0, start(agentID, task) }",
+		"20":"t_loadingFromPrimary_TK0.Idle->t_loadingFromPrimary_TK0.Waiting { isBusy(agentID, task) && isExecutable(agentID, task) && agents[precondition.p_agent].a_status[precondition.p_task] != FINISHED && agents[agentID].a_status[task.t_id] != FINISHED && !isMonitorAlert(agentID), tau, xe := 0, wait(agentID, task) }",
+		"21":"t_unloadingToSecond_TK0.Idle->t_unloadingToSecond_TK0.Executing { !isBusy(agentID, task) && isExecutable(agentID, task) && (agents[preconditions[0].p_agent].a_status[preconditions[0].p_task] == FINISHED || agents[preconditions[1].p_agent].a_status[preconditions[1].p_task] == FINISHED) && agents[agentID].a_status[task.t_id] != FINISHED && !isMonitorAlert(agentID), tau, xe := 0, start(agentID, task) }",
+		"22":"t_unloadingToSecond_TK0.Waiting->t_unloadingToSecond_TK0.Executing { !isBusy(agentID, task) && isExecutable(agentID, task) && (agents[preconditions[0].p_agent].a_status[preconditions[0].p_task] == FINISHED || agents[preconditions[1].p_agent].a_status[preconditions[1].p_task] == FINISHED) && agents[agentID].a_status[task.t_id] != FINISHED, tau, xe := 0, start(agentID, task) }",
+		"23":"t_unloadingToSecond_TK0.Idle->t_unloadingToSecond_TK0.Waiting { isBusy(agentID, task) && isExecutable(agentID, task) && (agents[preconditions[0].p_agent].a_status[preconditions[0].p_task] == FINISHED || agents[preconditions[1].p_agent].a_status[preconditions[1].p_task] == FINISHED) && agents[agentID].a_status[task.t_id] != FINISHED && !isMonitorAlert(agentID), tau, xe := 0, wait(agentID, task) }",
+		"24":"WAIT"
+	},"statevars":[
+		"Rong.location",
+		"m_stone0Secondary0_TK0.location",
+		"m_secondary0Stone0_TK0.location",
+		"m_primary0Secondary0_TK0.location",
+		"m_secondary0Primary0_TK0.location",
+		"m_primary1Secondary0_TK0.location",
+		"m_secondary0Primary1_TK0.location",
+		"m_primary2Secondary0_TK0.location",
+		"m_secondary0Primary2_TK0.location",
+		"m_primary3Secondary0_TK0.location",
+		"m_secondary0Primary3_TK0.location",
+		"t_digging_WL0.location",
+		"t_unloading_WL0.location",
+		"t_loadingFromWL_TK0.location",
+		"t_loadingFromPrimary_TK0.location",
+		"t_unloadingToSecond_TK0.location",
+		"var",
+		"agents[0].a_position",
+		"agents[0].a_monitors[0]",
+		"agents[0].a_task.t_id",
+		"agents[0].a_task.t_deviceUse.d_id",
+		"agents[0].a_task.t_deviceUse.d_position",
+		"agents[0].a_status[ID_DIG_WHEELLOADER]",
+		"agents[0].a_status[ID_UNLOAD_TO_TRUCKS_WHEELLOADER]",
+		"agents[1].a_position",
+		"agents[1].a_monitors[0]",
+		"agents[1].a_task.t_id",
+		"agents[1].a_task.t_deviceUse.d_id",
+		"agents[1].a_task.t_deviceUse.d_position",
+		"agents[1].a_status[ID_DIG_WHEELLOADER]",
+		"agents[1].a_status[ID_UNLOAD_TO_TRUCKS_WHEELLOADER]"
+	],"pointvars":[
+	],"locationnames":{
+		"Rong.location":{
+			"0":"Lose",
+			"1":"Win",
+			"2":"Ongoing",
+			"3":"Begin"
+		},
+		"m_stone0Secondary0_TK0.location":{
+			"0":"P2",
+			"1":"F1T2",
+			"2":"P1"
+		},
+		"m_secondary0Stone0_TK0.location":{
+			"0":"P2",
+			"1":"F1T2",
+			"2":"P1"
+		},
+		"m_primary0Secondary0_TK0.location":{
+			"0":"P2",
+			"1":"F1T2",
+			"2":"P1"
+		},
+		"m_secondary0Primary0_TK0.location":{
+			"0":"P2",
+			"1":"F1T2",
+			"2":"P1"
+		},
+		"m_primary1Secondary0_TK0.location":{
+			"0":"P2",
+			"1":"F1T2",
+			"2":"P1"
+		},
+		"m_secondary0Primary1_TK0.location":{
+			"0":"P2",
+			"1":"F1T2",
+			"2":"P1"
+		},
+		"m_primary2Secondary0_TK0.location":{
+			"0":"P2",
+			"1":"F1T2",
+			"2":"P1"
+		},
+		"m_secondary0Primary2_TK0.location":{
+			"0":"P2",
+			"1":"F1T2",
+			"2":"P1"
+		},
+		"m_primary3Secondary0_TK0.location":{
+			"0":"P2",
+			"1":"F1T2",
+			"2":"P1"
+		},
+		"m_secondary0Primary3_TK0.location":{
+			"0":"P2",
+			"1":"F1T2",
+			"2":"P1"
+		},
+		"t_digging_WL0.location":{
+			"0":"Waiting",
+			"1":"Idle",
+			"2":"Executing"
+		},
+		"t_unloading_WL0.location":{
+			"0":"Waiting",
+			"1":"Idle",
+			"2":"Executing"
+		},
+		"t_loadingFromWL_TK0.location":{
+			"0":"Waiting",
+			"1":"Idle",
+			"2":"Executing"
+		},
+		"t_loadingFromPrimary_TK0.location":{
+			"0":"Waiting",
+			"1":"Idle",
+			"2":"Executing"
+		},
+		"t_unloadingToSecond_TK0.location":{
+			"0":"Waiting",
+			"1":"Idle",
+			"2":"Executing"
+		}
+	},"regressors":{"(2,0,2,2,2,2,2,2,2,2,2,1,1,1,1,1,0,0,0,-1,-1,-1,2,0,5,0,-1,-1,-1,0,0,),[]":{
+	"2":1887.15},
+"(2,0,2,2,2,2,2,2,2,2,2,1,1,1,1,1,10,0,0,-1,-1,-1,2,0,5,0,-1,-1,-1,0,0,),[]":{
+	"2":1722.27},
+"(2,0,2,2,2,2,2,2,2,2,2,1,1,1,1,1,20,0,0,-1,-1,-1,2,0,5,0,-1,-1,-1,0,0,),[]":{
+	"2":1558.25},
+"(2,0,2,2,2,2,2,2,2,2,2,1,1,1,1,1,30,0,0,-1,-1,-1,2,0,5,0,-1,-1,-1,0,0,),[]":{
+	"2":1388.97},
+"(2,0,2,2,2,2,2,2,2,2,2,1,1,1,1,1,40,0,0,-1,-1,-1,2,0,5,0,-1,-1,-1,0,0,),[]":{
+	"2":1196.83},
+"(2,0,2,2,2,2,2,2,2,2,2,1,1,1,1,1,50,0,0,-1,-1,-1,2,0,5,0,-1,-1,-1,0,0,),[]":{
+	"2":1017.95},
+"(2,0,2,2,2,2,2,2,2,2,2,1,1,1,1,1,60,0,0,-1,-1,-1,2,0,5,0,-1,-1,-1,0,0,),[]":{
+	"2":817.466},
+"(2,0,2,2,2,2,2,2,2,2,2,1,1,1,1,1,70,0,0,-1,-1,-1,2,0,5,0,-1,-1,-1,0,0,),[]":{
+	"2":621.157},
+"(2,0,2,2,2,2,2,2,2,2,2,1,1,1,1,1,80,0,0,-1,-1,-1,2,0,5,0,-1,-1,-1,0,0,),[]":{
+	"2":429.291},
+"(2,0,2,2,2,2,2,2,2,2,2,1,1,1,1,1,90,0,0,-1,-1,-1,2,0,5,0,-1,-1,-1,0,0,),[]":{
+	"2":217.959},
+"(2,2,0,2,2,2,2,2,2,2,2,1,1,1,1,1,0,0,0,-1,-1,-1,0,0,0,0,-1,-1,-1,2,0,),[]":{
+	"1":2054.09},
+"(2,2,0,2,2,2,2,2,2,2,2,1,1,1,1,1,0,0,0,-1,-1,-1,2,0,0,0,-1,-1,-1,0,0,),[]":{
+	"14":1980.55},
+"(2,2,0,2,2,2,2,2,2,2,2,1,1,1,1,1,10,0,0,-1,-1,-1,0,0,0,0,-1,-1,-1,2,0,),[]":{
+	"11":1885.96},
+"(2,2,0,2,2,2,2,2,2,2,2,1,1,1,1,1,10,0,0,-1,-1,-1,2,0,0,0,-1,-1,-1,0,0,),[]":{
+	"14":1813.03},
+"(2,2,0,2,2,2,2,2,2,2,2,1,1,1,1,1,20,0,0,-1,-1,-1,0,0,0,0,-1,-1,-1,2,0,),[]":{
+	"11":1723.22},
+"(2,2,0,2,2,2,2,2,2,2,2,1,1,1,1,1,20,0,0,-1,-1,-1,2,0,0,0,-1,-1,-1,0,0,),[]":{
+	"14":1646.75},
+"(2,2,0,2,2,2,2,2,2,2,2,1,1,1,1,1,30,0,0,-1,-1,-1,0,0,0,0,-1,-1,-1,2,0,),[]":{
+	"1":1555.44},
+"(2,2,0,2,2,2,2,2,2,2,2,1,1,1,1,1,30,0,0,-1,-1,-1,2,0,0,0,-1,-1,-1,0,0,),[]":{
+	"14":1478.81},
+"(2,2,0,2,2,2,2,2,2,2,2,1,1,1,1,1,40,0,0,-1,-1,-1,0,0,0,0,-1,-1,-1,2,0,),[]":{
+	"1":1347.98},
+"(2,2,0,2,2,2,2,2,2,2,2,1,1,1,1,1,40,0,0,-1,-1,-1,2,0,0,0,-1,-1,-1,0,0,),[]":{
+	"14":1279.64},
+"(2,2,0,2,2,2,2,2,2,2,2,1,1,1,1,1,50,0,0,-1,-1,-1,0,0,0,0,-1,-1,-1,2,0,),[]":{
+	"11":1178.55},
+"(2,2,0,2,2,2,2,2,2,2,2,1,1,1,1,1,50,0,0,-1,-1,-1,2,0,0,0,-1,-1,-1,0,0,),[]":{
+	"14":1105.67},
+"(2,2,0,2,2,2,2,2,2,2,2,1,1,1,1,1,60,0,0,-1,-1,-1,0,0,0,0,-1,-1,-1,2,0,),[]":{
+	"1":957.786},
+"(2,2,0,2,2,2,2,2,2,2,2,1,1,1,1,1,60,0,0,-1,-1,-1,2,0,0,0,-1,-1,-1,0,0,),[]":{
+	"14":896.502},
+"(2,2,0,2,2,2,2,2,2,2,2,1,1,1,1,1,70,0,0,-1,-1,-1,0,0,0,0,-1,-1,-1,2,0,),[]":{
+	"1":779.177},
+"(2,2,0,2,2,2,2,2,2,2,2,1,1,1,1,1,70,0,0,-1,-1,-1,2,0,0,0,-1,-1,-1,0,0,),[]":{
+	"14":704.932},
+"(2,2,0,2,2,2,2,2,2,2,2,1,1,1,1,1,80,0,0,-1,-1,-1,0,0,0,0,-1,-1,-1,2,0,),[]":{
+	"1":577.877},
+"(2,2,0,2,2,2,2,2,2,2,2,1,1,1,1,1,80,0,0,-1,-1,-1,2,0,0,0,-1,-1,-1,0,0,),[]":{
+	"14":510.806},
+"(2,2,0,2,2,2,2,2,2,2,2,1,1,1,1,1,90,0,0,-1,-1,-1,0,0,0,0,-1,-1,-1,2,0,),[]":{
+	"1":355.444},
+"(2,2,0,2,2,2,2,2,2,2,2,1,1,1,1,1,90,0,0,-1,-1,-1,2,0,0,0,-1,-1,-1,0,0,),[]":{
+	"14":293.73},
+"(2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,0,0,0,-1,-1,-1,0,0,0,0,-1,-1,-1,0,0,),[]":{
+	"11":1792.37}
+
+	}
+}
