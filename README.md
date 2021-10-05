@@ -1,7 +1,7 @@
 # Experiments for paper "Synthesis and Compacting of Strategies for Multi-Agent Systems" - TACAS2022
 
 # Hardware and OS requirement
-- The experiments that are reported in the paper were conducted on a server with 48 CPU, 258G memory, running Ubuntu 20.04.
+- The experiments were conducted on a server with 48 CPU, 258G memory, running Ubuntu 20.04.
 
 # Experiments design
 - The models are seperated into 6 groups. 
@@ -11,3 +11,6 @@
 # Run the experiments
 - One can repeat the experiments on his/her own laptop (must be Linux) by running the *.sh files.
 - One can see the models by opening them with the latest version of UPPAAL STRATEGO: https://people.cs.aau.dk/~marius/stratego/
+
+# Additional statement
+- If the hardware of the laptops does not match the requirement, some models may exhausts the memory or Linux may kill the processes.
