@@ -14,4 +14,4 @@
 
 # Additional statement
 - If the hardware of the laptops does not match the requirement, some models may exhaust the memory or Linux may kill the processes.
-- To check the full experiment results, please visit: https://docs.google.com/spreadsheets/d/1k1j6LebfhJNeM_RfCoSL5OBv3b5RAIhx31ypivd7PQQ/edit?usp=sharing
+- To look at the full experiment results, please visit: https://docs.google.com/spreadsheets/d/1k1j6LebfhJNeM_RfCoSL5OBv3b5RAIhx31ypivd7PQQ/edit?usp=sharing
