@@ -13,4 +13,4 @@
 - One can see the models by opening them with the latest version of UPPAAL STRATEGO: https://people.cs.aau.dk/~marius/stratego/
 
 # Additional statement
-- If the hardware of the laptops does not match the requirement, some models may exhausts the memory or Linux may kill the processes.
+- If the hardware of the laptops does not match the requirement, some models may exhaust the memory or Linux may kill the processes.
