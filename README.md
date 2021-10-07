@@ -16,3 +16,4 @@
 - If the hardware of the laptops does not match the requirement, some models may exhaust the memory or Linux may kill the processes. 
 - One can run "**demo.sh**" to see how strategies are synthesized, verified, and compacted for some simple models that are selected from groups A-E. These examples should be relatively easier and feasible on personal laptop.
 - To see the full experiment results, please visit: https://docs.google.com/spreadsheets/d/1k1j6LebfhJNeM_RfCoSL5OBv3b5RAIhx31ypivd7PQQ/edit?usp=sharing
+- The binaries in the stratego folder are beta versions. Please do not distribute them.
