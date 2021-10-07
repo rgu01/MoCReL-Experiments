@@ -1,4 +1,4 @@
-### Experiments for paper "Synthesis and Compression of Strategies for Multi-Agent Systems" - TACAS2022
+### Experiments for paper "Strategy Synthesis and Compression for Multi-Agent Systems" - TACAS2022
 
 ### Hardware and OS requirement
 - The experiments were conducted on a server with 48 CPU (Intel(R) Xeon(R) CPU E5-2678 v3 @ 2.50GHz), 258G memory, running Ubuntu 20.04.
