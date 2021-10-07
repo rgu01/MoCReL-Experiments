@@ -1,7 +1,7 @@
 ### Experiments for paper "Synthesis and Compacting of Strategies for Multi-Agent Systems" - TACAS2022
 
 ### Hardware and OS requirement
-- The experiments were conducted on a server with 48 CPU, 258G memory, running Ubuntu 20.04.
+- The experiments were conducted on a server with 48 CPU (Intel(R) Xeon(R) CPU E5-2678 v3 @ 2.50GHz), 258G memory, running Ubuntu 20.04.
 
 ### Experiments design
 - The models are seperated into 6 groups. 
