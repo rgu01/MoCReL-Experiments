@@ -10,8 +10,8 @@
 - Group Runs is for showing how the number of runs used by the learning algorithm can influence the quality of the synthesized strategies, i.e., the probabilities of satisfying the liveness property.
 
 ### Run the experiments
-- Give permission to files by using: "chmod +x *.sh", "chmod +x stratego/*.*", "chmod +x stratego/verifyta", "chmod +x stratego/server". 
-- Repeat the experiments on his/her own laptop (must be Linux) by running the *.sh files. You must run the *.sh files under the GU-TACAS2022 folder.
+- Give permission to files by using: "chmod +x \*.sh", "chmod +x stratego/\*.*", "chmod +x stratego/verifyta", "chmod +x stratego/server". 
+- Repeat the experiments on his/her own laptop (must be Linux) by running the \*.sh files. You must run the \*.sh files under the GU-TACAS2022 folder.
 - See the models by opening them with the latest version of UPPAAL STRATEGO: https://people.cs.aau.dk/~marius/stratego/
 
 ### Additional statement
