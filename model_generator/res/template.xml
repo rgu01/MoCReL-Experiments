@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'res/flat-1_2.dtd'>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'Gu-TACAS2022/model_generator/res/flat-1_2.dtd'>
 <nta>
 	<declaration>const int GOALRANGE = 1000;
 const int NOAGENTS = 2;
