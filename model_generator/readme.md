@@ -1,0 +1,3 @@
+- Java 11 or later version is required to run configuration.jar
+- Click configuration.jar or run "java -jar configuration.jar" in a terminal.
+- If a possible error of file directory should occur, please open res/template.xml with a text editor and change 'res/flat-1_2.dtd' to the one that fits your directory.
