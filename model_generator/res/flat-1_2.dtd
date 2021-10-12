@@ -1,0 +1,156 @@
+<!ELEMENT project (imports?, declaration?, template*, lsc*, instantiation?, system, queries?)>
+<!ELEMENT imports (#PCDATA)>
+<!ELEMENT declaration (#PCDATA)>
+<!ELEMENT template (name, parameter?, declaration?, location*, init?, transition*)>
+<!ELEMENT name (#PCDATA)>
+<!ATTLIST name x   CDATA #IMPLIED
+               y   CDATA #IMPLIED>
+<!ELEMENT parameter (#PCDATA)>
+<!ATTLIST parameter x   CDATA #IMPLIED
+                    y   CDATA #IMPLIED>
+<!ELEMENT location (name?, label*, urgent?, committed?)>
+<!ATTLIST location id ID #REQUIRED
+		   x  CDATA #IMPLIED
+		   y  CDATA #IMPLIED
+		   color CDATA #IMPLIED>
+<!ELEMENT init EMPTY>
+<!ATTLIST init ref IDREF #IMPLIED>
+<!ELEMENT urgent EMPTY>
+<!ELEMENT committed EMPTY>
+<!ELEMENT transition (source, target, label*, nail*)>
+<!ATTLIST transition id  ID #IMPLIED
+                     x   CDATA #IMPLIED
+                     y   CDATA #IMPLIED
+		     color CDATA #IMPLIED>
+<!ELEMENT source EMPTY>
+<!ATTLIST source ref IDREF #REQUIRED>
+<!ELEMENT target EMPTY>
+<!ATTLIST target ref IDREF #REQUIRED>
+<!ELEMENT label (#PCDATA)>
+<!ATTLIST label	kind CDATA #REQUIRED
+		x    CDATA #IMPLIED
+		y    CDATA #IMPLIED>
+<!ELEMENT nail EMPTY>
+<!ATTLIST nail x   CDATA #REQUIRED
+               y   CDATA #REQUIRED>
+               
+<!-- LSC template -->
+<!ELEMENT lsc (name, parameter?, type, mode, declaration?, yloccoord+, instance+, prechart?, message*, condition*, update*, cut*, scope*, coregion*, subchart*, loop*, ifthenelse*)>
+
+<!-- type: existential | universal -->
+<!ELEMENT type (#PCDATA)>
+<!ATTLIST type      x   CDATA #IMPLIED
+                    y   CDATA #IMPLIED>
+<!-- mode: initial | iterative | invariant -->
+<!ELEMENT mode (#PCDATA)>
+<!ATTLIST mode      x   CDATA #IMPLIED
+                    y   CDATA #IMPLIED>
+<!-- role: specification | property -->
+<!ELEMENT role (#PCDATA)>
+<!ATTLIST role      x   CDATA #IMPLIED
+                    y   CDATA #IMPLIED>
+<!-- yloccoord: Y coordinate for location on all instances (same loc number => same Y coord) -->
+<!ELEMENT yloccoord EMPTY>
+<!ATTLIST yloccoord number CDATA #REQUIRED
+                    y      CDATA #REQUIRED>
+
+
+<!-- instance: carries unique ID, label(which can change during run), and temperatures of the locations -->
+<!ELEMENT instance (name)>
+<!ATTLIST instance id ID #REQUIRED
+           x  CDATA #REQUIRED
+           y  CDATA #IMPLIED>
+<!-- temperature = hot | cold, identified by location_number (or, if location numbers not present, count from 1 on) -->
+<!ELEMENT temperature (#PCDATA)>
+<!ATTLIST temperature y CDATA #IMPLIED>
+
+
+<!-- message: refs of src, trg instances; location; label=name -->
+<!ELEMENT message (source, target, lsclocation, label)>
+<!ATTLIST message    id  ID #IMPLIED
+                     x   CDATA #IMPLIED
+                     y   CDATA #IMPLIED
+             color CDATA #IMPLIED>
+    <!-- source points to ID of instance line -->
+    <!-- target points to ID of instance line -->
+<!ELEMENT lsclocation (#PCDATA)>
+
+    <!-- anchor refers to instance ID and optionally carries the location number (y)-->
+<!ELEMENT anchor EMPTY>
+<!ATTLIST anchor     instanceid IDREF #REQUIRED
+                     y CDATA #IMPLIED>
+
+<!-- condition: anchors+ (= {x,y} with y being the same);  temperature; label=expression -->
+<!ELEMENT condition (anchor+, lsclocation, temperature, label)>
+<!ATTLIST condition  id  ID #IMPLIED
+                     x   CDATA #IMPLIED
+                     y   CDATA #IMPLIED
+             color CDATA #IMPLIED>
+
+<!-- update: anchor; location; label=expression -->
+<!ELEMENT update (anchor, lsclocation, label)>
+<!ATTLIST update     id  ID #IMPLIED
+                     x   CDATA #IMPLIED
+                     y   CDATA #IMPLIED
+             color CDATA #IMPLIED>
+
+<!-- prechart: spans over ALL instances by default, only need to specify its bottom location -->
+<!ELEMENT prechart  (lsclocation)>
+<!ATTLIST prechart   id  ID #IMPLIED
+                     x   CDATA #IMPLIED
+                     y   CDATA #IMPLIED
+             color CDATA #IMPLIED>
+
+<!-- the following LSC constructs are deemed optional - may be ignored in the first version of LSC editor -->
+
+<!-- cut: nothing but a set of anchors (=pair {x,y}) -->
+<!ELEMENT cut  (anchor+)>
+<!ATTLIST cut        id  ID #IMPLIED
+                     x   CDATA #IMPLIED
+                     y   CDATA #IMPLIED
+             color CDATA #IMPLIED>
+
+<!-- scope: upper & lower locations, temperature; reference to the IDs of 2 cuts -->
+<!ELEMENT scope (lsclocation, lsclocation, temperature)>
+<!ATTLIST scope      id  ID #IMPLIED
+                     x   CDATA #IMPLIED
+                     y   CDATA #IMPLIED
+             cut1ref IDREF #REQUIRED
+             cut2ref IDREF #REQUIRED
+             color CDATA #IMPLIED>
+
+<!-- coregion: instance (by anchor(s)), locations deduced from anchors -->
+<!ELEMENT coregion (anchor, anchor)>
+<!ATTLIST coregion   id  ID #IMPLIED
+                     x   CDATA #IMPLIED
+                     y   CDATA #IMPLIED
+             color CDATA #IMPLIED>
+
+<!-- loop: anchors over instances, upper and lower location, and label=expression -->
+<!ELEMENT loop (anchor+, lsclocation, lsclocation, label)>
+<!ATTLIST loop       id  ID #IMPLIED
+                     x   CDATA #IMPLIED
+                     y   CDATA #IMPLIED
+             color CDATA #IMPLIED>
+
+<!-- subchart: anchors over instances, upper and lower location -->
+<!ELEMENT subchart   (anchor+, lsclocation, lsclocation)>
+<!ATTLIST subchart   id  ID #IMPLIED
+                     x   CDATA #IMPLIED
+                     y   CDATA #IMPLIED
+             color CDATA #IMPLIED>
+
+<!-- ifThenElse: anchors over instances, top/middle/bottom locations and label=expression -->
+<!ELEMENT ifthenelse (anchor+, lsclocation, lsclocation, lsclocation, label)>
+<!ATTLIST ifthenelse id  ID #IMPLIED
+                     x   CDATA #IMPLIED
+                     y   CDATA #IMPLIED
+             color CDATA #IMPLIED>
+               
+<!ELEMENT instantiation (#PCDATA)>
+<!ELEMENT system (#PCDATA)>
+<!ELEMENT queries (query*)>
+<!ELEMENT query (comment,formula)>
+<!ELEMENT formula (#PCDATA)>
+<!ELEMENT comment (#PCDATA)>
+
