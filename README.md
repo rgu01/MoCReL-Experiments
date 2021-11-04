@@ -11,7 +11,7 @@
 
 ### Run the experiments
 - If necessary, give permission to files by using: "chmod +x \*.sh", "chmod +x stratego/\*.*", "chmod +x stratego/verifyta", "chmod +x stratego/server". 
-- Repeat the experiments by running the \*.sh files. You must run the \*.sh files under the "GU-TACAS2022" folder.
+- Repeat the experiments by running the \*.sh files. You must run the \*.sh files under the "GU-NFM2022" folder.
 - See the models by opening them with the latest version of UPPAAL STRATEGO: https://people.cs.aau.dk/~marius/stratego/
 
 ### A tool for model generation
