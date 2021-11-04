@@ -2,7 +2,7 @@
 
 ### Experiment requirement
 - The experiments were conducted on a server with 48 CPU (Intel Xeon CPU E5-2678 v3 @ 2.50GHz), 258G memory, running Ubuntu 20.04.
-- Put the folder "Gu-TACAS2022" under "/home/username".
+- Put the folder "Gu-NFM2022" under "/home/username".
 
 ### Experiment design
 - The models are seperated into 6 groups. 
