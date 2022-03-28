@@ -1,8 +1,8 @@
-### Experiments for paper "Strategy Synthesis and Compression for Multi-Agent Systems"
+### Experiments for paper "Correctness Guaranteed Strategy Synthesis and Compression for Multi-Agent Systems"
 
 ### Experiment requirement
 - The experiments were conducted on a server with 48 CPU (Intel Xeon CPU E5-2678 v3 @ 2.50GHz), 258G memory, running Ubuntu 20.04.
-- Put the folder "Gu-NFM2022" under "/home/username".
+- Put the folder "MoCReL-Experiments" under "/home/username".
 
 ### Experiment design
 - The models are seperated into 6 groups. 
@@ -11,7 +11,7 @@
 
 ### Run the experiments
 - If necessary, give permission to files by using: "chmod +x \*.sh", "chmod +x stratego/\*.*", "chmod +x stratego/verifyta", "chmod +x stratego/server". 
-- Repeat the experiments by running the \*.sh files. You must run the \*.sh files under the "GU-NFM2022" folder.
+- Repeat the experiments by running the \*.sh files. You must run the \*.sh files under the "MoCReL-Experiments" folder.
 - See the models by opening them with the latest version of UPPAAL STRATEGO: https://people.cs.aau.dk/~marius/stratego/
 
 ### A tool for model generation
