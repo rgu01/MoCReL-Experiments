@@ -1,4 +1,4 @@
-### Experiments for paper "Correctness Guaranteed Strategy Synthesis and Compression for Multi-Agent Systems"
+### Experiments for MoCReL
 
 ### Experiment requirement
 - The experiments were conducted on a server with 48 CPU (Intel Xeon CPU E5-2678 v3 @ 2.50GHz), 258G memory, running Ubuntu 20.04.
